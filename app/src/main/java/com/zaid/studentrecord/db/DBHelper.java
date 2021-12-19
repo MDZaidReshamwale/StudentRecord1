@@ -7,6 +7,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.zaid.studentrecord.model.Student;
+
+import java.util.ArrayList;
+
 public class DBHelper extends SQLiteOpenHelper {
     public DBHelper( Context context) {
         super(context, "zaid.db", null, 1);
@@ -25,16 +29,20 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 
-    public long addStudent(String sno, String name, String address, String mnumber) {
+    public long addStudent(Student s) {
         SQLiteDatabase db = getWritableDatabase();
 
         ContentValues cv = new ContentValues();
-        cv.put("sno", sno);
-        cv.put("name", name);
-        cv.put("address", address);
-        cv.put("mobile", mnumber);
+        cv.put("sno", s.getSno());
+        cv.put("name", s.getName());
+        cv.put("address", s.getAddress());
+        cv.put("mobile", s.getMnumber());
 
         return db.insert("tbl_student",null,cv);
+
+    }
+
+    public ArrayList<Student> getAllStudents(){
 
     }
 }

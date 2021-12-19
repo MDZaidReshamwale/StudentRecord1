@@ -1,5 +1,7 @@
 package com.zaid.studentrecord.activity;
 
+import static java.lang.Integer.parseInt;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,6 +12,7 @@ import android.widget.Toast;
 
 import com.zaid.studentrecord.R;
 import com.zaid.studentrecord.db.DBHelper;
+import com.zaid.studentrecord.model.Student;
 
 public class AddStudentActivity extends AppCompatActivity {
 
@@ -35,6 +38,9 @@ public class AddStudentActivity extends AppCompatActivity {
         String name = edName.getText().toString().trim();
         String address = edAddress.getText().toString().trim();
         String mnumber = edMNumber.getText().toString().trim();
+
+//        -----------------
+        Student s = new Student(Integer.parseInt(sno), name, address, Integer.parseInt(mnumber));
 
         DBHelper dbHelper = new DBHelper(AddStudentActivity.this);
         long result = dbHelper.addStudent(sno, name, address, mnumber );
