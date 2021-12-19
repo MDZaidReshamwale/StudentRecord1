@@ -6,5 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".activity.StudentActivity">
 
+<com.google.android.material.button.MaterialButton
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:text="CLICK HERE"
+    android:onClick="Next">
 
+</com.google.android.material.button.MaterialButton>
 </RelativeLayout>
