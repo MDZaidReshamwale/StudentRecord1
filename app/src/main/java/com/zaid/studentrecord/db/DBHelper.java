@@ -2,6 +2,7 @@ package com.zaid.studentrecord.db;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -43,6 +44,24 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList<Student> getAllStudents(){
+        ArrayList<Student> students = new ArrayList<>();
 
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * from tbl_student", null );
+
+        if (cursor.moveToFirst()){
+            do{
+//                int id = cursor.getInt(0);
+                int sno = cursor.getInt(0);
+                String name = cursor.getString(1);
+                String address = cursor.getString(2);
+                int mobile = cursor.getInt(3);
+            Student s =new Student( sno, name, address, mobile);
+            students.add(s);
+
+            }while (cursor.moveToNext());
+        }
+
+        return students;
     }
 }

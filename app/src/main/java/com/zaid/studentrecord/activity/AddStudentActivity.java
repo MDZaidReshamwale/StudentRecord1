@@ -43,7 +43,7 @@ public class AddStudentActivity extends AppCompatActivity {
         Student s = new Student(Integer.parseInt(sno), name, address, Integer.parseInt(mnumber));
 
         DBHelper dbHelper = new DBHelper(AddStudentActivity.this);
-        long result = dbHelper.addStudent(sno, name, address, mnumber );
+        long result = dbHelper.addStudent(s);
 
         if (result > 0){
             Toast.makeText(this,"Saved" + result,Toast.LENGTH_SHORT).show();
