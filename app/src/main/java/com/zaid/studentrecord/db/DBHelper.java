@@ -1,4 +1,6 @@
 package com.zaid.studentrecord.db;
 
-public class DBHelper  {
+import android.database.sqlite.SQLiteOpenHelper;
+
+public class DBHelper extends SQLiteOpenHelper {
 }
