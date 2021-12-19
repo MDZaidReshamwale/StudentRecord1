@@ -15,12 +15,12 @@
         >
 
         <EditText
-            android:id="@+id/edID"
+            android:id="@+id/edSNo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
-            android:hint="Enter ID"
+            android:hint="Enter SNo"
             android:inputType="number"
             android:maxLength="2"
             android:padding="10dp"

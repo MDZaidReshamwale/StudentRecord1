@@ -6,18 +6,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.zaid.studentrecord.R;
+import com.zaid.studentrecord.db.DBHelper;
 
 public class AddStudentActivity extends AppCompatActivity {
 
 //   Declaring variable
-    EditText edName, edId, edMNumber, edAddress;
+    EditText edName, edSno, edMNumber, edAddress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_student);
-        edId = findViewById(R.id.edID);
+        edSno = findViewById(R.id.edSNo);
         edName = findViewById(R.id.edName);
         edMNumber = findViewById(R.id.edMobileNumber);
         edAddress = findViewById(R.id.edAddress);
@@ -29,11 +31,20 @@ public class AddStudentActivity extends AppCompatActivity {
     }
 
     public void save(View view) {
-        String id = edId.getText().toString().trim();
+        String sno = edSno.getText().toString().trim();
         String name = edName.getText().toString().trim();
         String address = edAddress.getText().toString().trim();
         String mnumber = edMNumber.getText().toString().trim();
 
+        DBHelper dbHelper = new DBHelper(AddStudentActivity.this);
+        long result = dbHelper.addStudent(sno, name, address, mnumber );
+
+        if (result > 0){
+            Toast.makeText(this,"Saved" + result,Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this,"Failed" + result,Toast.LENGTH_SHORT).show();
+
+        }
     }
 
 }
