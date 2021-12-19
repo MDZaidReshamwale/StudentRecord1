@@ -23,6 +23,7 @@ public class StudentActivity extends AppCompatActivity {
                     try{
                         Thread.sleep(200);
                         startActivity(new Intent(StudentActivity.this, AddStudentActivity.class));
+                        finish();
                     }catch (InterruptedException e){
                         e.printStackTrace();
                     }
