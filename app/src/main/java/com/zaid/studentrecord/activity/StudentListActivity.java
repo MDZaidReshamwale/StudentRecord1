@@ -25,6 +25,7 @@ public class StudentListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_student_list);
 
         tvTotal = findViewById(R.id.tvTotal);
+        recyclerView = findViewById(R.id.recyclerView);
 
         DBHelper dbHelper = new DBHelper(this);
         students = dbHelper.getAllStudents();
