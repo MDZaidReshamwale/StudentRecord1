@@ -106,7 +106,7 @@
             android:padding="10dp">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/btnUpdate"
+                android:id="@+id/cardUpdate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -130,9 +130,12 @@
 
             </androidx.cardview.widget.CardView>
 
+            <View
+                android:layout_width="16dp"
+                android:layout_height="10dp"/>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/btnDelete"
+                android:id="@+id/cardDelete"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
