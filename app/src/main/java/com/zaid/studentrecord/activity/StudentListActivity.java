@@ -1,12 +1,14 @@
 package com.zaid.studentrecord.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
 import com.zaid.studentrecord.R;
+import com.zaid.studentrecord.adapter.StudentAdapter;
 import com.zaid.studentrecord.db.DBHelper;
 import com.zaid.studentrecord.model.Student;
 
@@ -17,7 +19,7 @@ public class StudentListActivity extends AppCompatActivity {
 
     ArrayList<Student> students;
     TextView tvTotal;
-
+    StudentAdapter studentAdapter;
     RecyclerView recyclerView;
     @Override
 
@@ -35,6 +37,13 @@ public class StudentListActivity extends AppCompatActivity {
         for (Student s : students) {
             System.out.println(s.getSno());
         }
+
+        studentAdapter  = new StudentAdapter(students, this );
+        recyclerView.setAdapter(studentAdapter);
+
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(RecyclerView.VERTICAL);
+        recyclerView.setLayoutManager(llm);
 
     }
 }

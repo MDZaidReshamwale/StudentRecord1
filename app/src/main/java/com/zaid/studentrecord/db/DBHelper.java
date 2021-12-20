@@ -51,11 +51,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
         if (cursor.moveToFirst()){
             do{
-//                int id = cursor.getInt(0);
-                int sno = cursor.getInt(0);
-                String name = cursor.getString(1);
-                String address = cursor.getString(2);
-                int mobile = cursor.getInt(3);
+                int id = cursor.getInt(0);
+                int sno = cursor.getInt(1);
+                String name = cursor.getString(2);
+                String address = cursor.getString(3);
+                int mobile = cursor.getInt(4);
             Student s =new Student( sno, name, address, mobile);
             students.add(s);
 
