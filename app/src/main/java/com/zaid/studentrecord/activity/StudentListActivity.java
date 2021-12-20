@@ -17,6 +17,7 @@ public class StudentListActivity extends AppCompatActivity {
 
     ArrayList<Student> students;
     TextView tvTotal;
+
     RecyclerView recyclerView;
     @Override
 
